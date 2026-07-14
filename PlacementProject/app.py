@@ -50,11 +50,11 @@ st.markdown(
 
 @st.cache_resource
 def load_model():
-
+    from pathlib import Path
     try:
-        model = joblib.load(
-            "placement_model.pkl"
-        )
+        BaseDir=Path(__file__).parent
+        model_path=BaseDir/"placement_model.pkl"
+        model = joblib.load(model_path)
 
         return model
 
